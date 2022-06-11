@@ -16,3 +16,8 @@ header {
 .btn {
     margin: 10px;
 }
+
+ul {
+    list-style: none;
+    justify-content: left!important;
+}
