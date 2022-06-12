@@ -12,12 +12,30 @@ header {
     padding: 2px;
     text-align: center;
 }
+.cap {
+    text-transform:capitalize;
+}
+
+.container {
+    margin-top: 40px;
+}
 
 .btn {
     margin: 10px;
+    padding: 5px 30px 5px 30px;
 }
 
+h5 {
+    font-size: 22px;
+}
+#user-input {
+    padding: 6px 9px 6px 9px;
+}
+.citiesBtn {
+    background-color: rgb(110, 111, 112);
+}
 ul {
     list-style: none;
     justify-content: left!important;
 }
+
