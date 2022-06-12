@@ -35,8 +35,13 @@ h5 {
 .citiesBtn {
     background-color: rgb(110, 111, 112);
 }
+
+.forecastCards {
+    margin-right: 5px;
+}
 ul {
     list-style: none;
     padding: 0px;
+    
 }
 
