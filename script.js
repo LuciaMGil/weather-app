@@ -57,10 +57,15 @@ getForecast = (lat, lon) => {
     .then (data => {
         console.log(data);
         // We need temp wind and humidity
-        for (let i=0; i < 6; i++) {
+        for (let i=0; i < 5; i++) {
             var temp = data.list[i].main.temp;
-            console.log(temp);
+            var humidity = data.list[i].main.humidity;
+            var forecastedWindSpeed = data.list[i].wind.speed;
+            console.log(temp + `F`);
+            var ForecastCol = $(`<div class="col card card-body" data-type="` + i + `"> <ul> <li>${inputVal.val()}</li> <li>Temp: ${temp}F </li> <li>Humidity: ${humidity}% </li><li> Wind Speed: ${forecastedWindSpeed} MPH <li></ul></div>`);
+            $("#forecastDiv").append(ForecastCol);
         }
+
     })
     .catch(error => console.log(error))
 }
