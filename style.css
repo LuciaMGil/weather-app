@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    text-align: center; 
     font-family: 'Roboto', sans-serif;
     justify-content: left;
 }
@@ -29,19 +28,33 @@ header {
 h5 {
     font-size: 22px;
 }
+.fiveDay {
+ margin: 20px 0px 18px 0px;
+}
 #user-input {
-    padding: 6px 9px 6px 9px;
+    padding: 6px 5px 6px 5px;
 }
 .citiesBtn {
     background-color: rgb(110, 111, 112);
 }
 
+#current-date {
+    font-size: 20px;
+    color: rgb(51, 50, 50);
+    
+}
 .forecastCards {
     margin-right: 5px;
+    background-color: #bcc8e0;
+    border: none;
 }
 ul {
     list-style: none;
     padding: 0px;
-    
+}
+
+li {
+    margin-top: 6px;
+    padding-left: 8px;
 }
 

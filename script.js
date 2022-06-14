@@ -12,7 +12,11 @@ var cities = [{
     lon: -84.4146,
 }];
 
-
+$(document).ready( function () {
+    
+    getCurrentWeather(cities[0].lat,cities[0].lon);
+    
+});
 
 // Displays current date
 $("#current-date").text(today);
@@ -22,23 +26,22 @@ getLatLon = () => {
     fetch(`http://api.positionstack.com/v1/forward?access_key=e787a7efe77d71459dd6e00b2fe0e586&query=${inputVal.val()}&country=US`)
     .then(response => response.json())
     .then(data => {
-        
-        
-
+    
         // Where we store new city information
         var cityInput = {
             name: inputVal.val(),
             lat: data.data[0].latitude,
             lon: data.data[0].longitude,
-        }
-
+        } 
+        
+        cityName.empty();
+        cityName.append(`<h4 class = cap>${inputVal.val()}</h4>`);
 
         // push city input object to cities array
        
             cities.push(cityInput);
             storeCities();
-    
-        
+       
         // Runs the function cityBtn which creates a button for every new city entered
         cityBtn();
         // Runs weather data for the lat and lon of city entered
@@ -72,21 +75,21 @@ getCurrentWeather = (lat, lon) => {
         var uvi = data.current.uvi;
         // Creates currentWeather div with information on the current weather
         currentWeather.empty();
-        cityName.empty();
+      
 
         // RUN CITY NAME APPEND H4 WHEN CLICKED AND WHEN WRITTEN AND ENTERED
-        cityName.append(`<h4 class = cap>${inputVal.val()}</h4>`);
-        currentWeather.append(`<ul> <li> Temp: ${temp} F </li> <li>Wind speed: ${windSpeed} MPH </li> <li>Humidity: ${humidity}% </li> <li>UV Index: ${uvi}</li></ul>`);
+       
+        currentWeather.append(`<ul><li> Temp: ${temp} F°  </li> <li>Wind speed: ${windSpeed} MPH </li> <li>Humidity: ${humidity}% </li> <li>UV Index: ${uvi}</li></ul>`);
     
         forecastDiv.empty();
         // We need temp wind and humidity
         for (let i=0; i < 5; i++) {
             var date = new Date(data.daily[i].dt * 1000);
-            var dateFormat = moment(date).format("dddd, MMMM Do YYYY");
+            var dateFormat = moment(date).format("ddd, MMMM Do YYYY");
             var temp = data.daily[i].temp.day;
             var humidity = data.daily[i].humidity;
             var forecastedWindSpeed = data.daily[i].wind_speed;
-            var ForecastCol = $(`<div class="col card card-body forecastCards col-sm-2" data-type="` + i + `"> <ul><li>${dateFormat}</li><li>Temp: ${temp} F° </li> <li>Humidity: ${humidity}% </li><li> Wind Speed: ${forecastedWindSpeed} MPH <li></ul></div>`);
+            var ForecastCol = $(`<div class="col card card-body forecastCards col-sm-2 shadow-sm text-left data-type="` + i + `"> <ul><li>${dateFormat}</li> <br> <li>Temp: ${temp} F° </li> <li>Humidity: ${humidity}% </li><li> Wind Speed: ${forecastedWindSpeed} MPH <li></ul></div>`);
             forecastDiv.append(ForecastCol);
         }
         
@@ -108,7 +111,6 @@ cityBtn = () => {
 // When you click a city button then that cities weather info will be displayed
 citiesBtn.on("click", function (e) {
     var cityText = e.target.textContent
-    console.log(cityText);
     var matchingCity = getItemByName(cities, cityText);
     getCurrentWeather(matchingCity.lat,matchingCity.lon);
     cityName.empty();
