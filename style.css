@@ -3,6 +3,7 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     justify-content: left;
+    
 }
 
 header {
@@ -15,27 +16,43 @@ header {
 .cap {
     text-transform:capitalize;
 }
-
 .container {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
-.btn {
-    margin: 10px;
-    padding: 5px 30px 5px 30px;
-}
-
-h5 {
-    font-size: 22px;
-}
-.fiveDay {
- margin: 20px 0px 18px 0px;
-}
 #user-input {
-    padding: 6px 5px 6px 5px;
+    padding: 3px 5px 3px 5px;
+    margin: 10px 0px 2px 0px;
 }
+::placeholder { 
+    color: rgb(165, 164, 164);
+    text-align: center;
+}
+#submit-btn {
+    background-color: #174ab8;
+    margin: 10px 0px 5px 0px;
+    margin-bottom: 50px;
+}
+.btn {
+    padding: 5px 30px 5px 30px;
+    border: none;
+}
+
 .citiesBtn {
-    background-color: rgb(110, 111, 112);
+    background-color: #8b8c8d;
+    margin-bottom: 20px;
+}
+
+
+
+.fiveDay {
+    margin: 20px 0px 18px 0px;  
+}
+
+
+main {
+    padding: 0px;
+    margin-top: 35px!important;
 }
 
 #current-date {
@@ -45,7 +62,7 @@ h5 {
 }
 .forecastCards {
     margin-right: 5px;
-    background-color: #bcc8e0;
+    background-color: #a1b6e4;
     border: none;
 }
 ul {
@@ -55,6 +72,10 @@ ul {
 
 li {
     margin-top: 6px;
-    padding-left: 8px;
+}    
+
+.forecastCards li {
+    font-size: 15px;
+    padding-left: 2px;
 }
 

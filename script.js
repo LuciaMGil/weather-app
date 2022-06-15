@@ -15,6 +15,7 @@ var cities = [{
 $(document).ready( function () {
     
     getCurrentWeather(cities[0].lat,cities[0].lon);
+    cityBtn();
     
 });
 
@@ -35,7 +36,7 @@ getLatLon = () => {
         } 
         
         cityName.empty();
-        cityName.append(`<h4 class = cap>${inputVal.val()}</h4>`);
+        cityName.append(`<h4 class="cap">${inputVal.val()}</h4>`);
 
         // push city input object to cities array
        
@@ -89,7 +90,7 @@ getCurrentWeather = (lat, lon) => {
             var temp = data.daily[i].temp.day;
             var humidity = data.daily[i].humidity;
             var forecastedWindSpeed = data.daily[i].wind_speed;
-            var ForecastCol = $(`<div class="col card card-body forecastCards col-sm-2 shadow-sm text-left data-type="` + i + `"> <ul><li>${dateFormat}</li> <br> <li>Temp: ${temp} F° </li> <li>Humidity: ${humidity}% </li><li> Wind Speed: ${forecastedWindSpeed} MPH <li></ul></div>`);
+            var ForecastCol = $(`<div class="col card card-body forecastCards col-sm-2 shadow-sm text-left data-type="` + i + `"> <ul><h6 style="text-decoration: underline">${dateFormat}</h6> <br> <li>Temp: ${temp} F° </li> <li>Humidity: ${humidity}% </li><li> Wind Speed: ${forecastedWindSpeed} MPH <li></ul></div>`);
             forecastDiv.append(ForecastCol);
         }
         
@@ -102,7 +103,7 @@ getCurrentWeather = (lat, lon) => {
 cityBtn = () => {
     citiesBtn.empty();
     cities.forEach(city => {
-        citiesBtn.append(`<button class = "btn btn-primary citiesBtn cap" value="${city}">${city.name}</button><br/>`);
+        citiesBtn.append(`<button class = "btn btn-primary citiesBtn shadow-sm cap" value="${city}">${city.name}</button><br/>`);
     
     })
 
@@ -114,7 +115,7 @@ citiesBtn.on("click", function (e) {
     var matchingCity = getItemByName(cities, cityText);
     getCurrentWeather(matchingCity.lat,matchingCity.lon);
     cityName.empty();
-    cityName.append(`<h4 class = cap>${cityText}</h4>`);
+    cityName.append(`<h4 class>${cityText}</h4>`);
 
 });
 

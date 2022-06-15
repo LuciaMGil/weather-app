@@ -21,28 +21,26 @@
     <div class="row main-row">
 
         <!-- Search bar and buttons section -->
-        <aside class="col-sm-2" id="side-bar">
-            <h5>Search For A City</h5> 
+        <aside class="col-sm-3 text-center" id="side-bar">
+            <h5>Search for a city</h5> 
                     <input id="user-input" type="text" placeholder="Enter City Name">
-                    <button type="button" class="btn btn-primary " id="submit-btn">
+                    <button type="button" class="btn btn-primary shadow-sm" id="submit-btn">
                        Check Weather
                     </button>
-
              <!-- Button display -->   
             <div id="citiesBtn" class="button-group ">
             </div>
         </aside>
 
         <!-- Weather section -->
-        <main class="col-md-10">
+        <main class="col-md-9">
             <div class="card row" id="current-city-info">
-                <div class="card-body">
-                    <h4 class="card-title current-card text-center">
-                        <span id="city-name"> Atlanta</span> 
-                        <br>
-                        <span id="current-date"> </span>  
+                <div class="card-body shadow-sm">
+                    <div class="card-title current-card text-center">
+                        <h2 id="city-name"> Atlanta</h2> 
+                        <h3 id="current-date"> </h3>  
                         <hr>
-                    </h4>
+                    </div>
                     <!-- Current weather display -->
                     <div  id="display-current-weather"> 
                     </div>
@@ -50,7 +48,7 @@
             </div>
             <br>
             <div class="card-body">
-                <h4 class="text-left fiveDay">5-Day Forecast:</h4>
+                <h2 class="text-left fiveDay">5-Day Forecast:</h2>
                 <div class="row row-cols-6" id="forecastDiv">    
                 </div>
             </div>
